@@ -1,0 +1,32 @@
+<odoo>
+  <data>
+    <record id="course0" model="openacademy.course">
+      <field name="name">Object 0</field>
+      <field name="description">This is a demo Course
+        it can have multiple lines
+        it might not stored in postgres database.
+      </field>
+    </record>
+
+    <record id="object course 1" model="openacademy.course">
+      <field name="name">Object Course 1</field>
+      <field name="description">
+        learning objects on this course.
+      </field>
+    </record>
+
+    <record id="3rd Course" model="openacademy.course">
+      <field name="name">Object 2</field>
+    </record>
+
+    <record id="object3" model="openacademy.course">
+      <field name="name">Object 3</field>
+      <field name="description"> i dont know what to say </field>
+    </record>
+
+    <record id="object4" model="openacademy.course">
+      <field name="name">Object 4</field>
+      <field name="description"> 5th object </field>
+    </record>
+  </data>
+</odoo>
