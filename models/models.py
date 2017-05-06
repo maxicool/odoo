@@ -6,6 +6,9 @@ class Course(models.Model):
     _name = 'openacademy.course'
 
     name = fields.Char(string="Title", required=True)
+
+    #string has no effect by upgrade, but works after reinstall again
+    #description = fields.Text(string="what is up"
     description = fields.Text()
 
 # class openacademy(models.Model):

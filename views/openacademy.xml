@@ -2,6 +2,7 @@
 <odoo>
     <data>
         <!-- bebore the window actions, we create some form views -->
+        <!-- seems no difference with adding base view -->
         <record model="ir.ui.view" id="course_form_view">
             <field name="name">course.form</field>
             <field name="model">openacademy.course</field>
@@ -10,13 +11,21 @@
                     <sheet>
                         <group>
                             <field name="name"/>
-                            <field name="description"/>
+                            <!-- <field name="description"/> -->
                         </group>
+                        <notebook>
+                            <page string="Description">
+                                <field name="description"/>
+                            </page>
+                            <page string="About">
+                                This is an example of notebooks
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
         </record>
-        
+
         <!-- We have to first define actions, then add menu below -->
         <!-- window action -->
         <!--
