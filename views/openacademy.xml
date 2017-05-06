@@ -26,6 +26,19 @@
             </field>
         </record>
 
+        <!-- we try to modify search form -->
+        <!-- but after update, i don't see any effect -->
+        <record model="ir.ui.view" id="course_search_view">
+            <field name="name">course.search</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="description"/>
+                </search>
+            </field>
+        </record>
+
         <!-- We have to first define actions, then add menu below -->
         <!-- window action -->
         <!--
