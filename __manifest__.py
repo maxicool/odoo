@@ -3,20 +3,20 @@
     'name': "openacademy",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Odoo Tutorial""",
 
     'description': """
-        Long description of module's purpose
+        This is a tutorial for using odoo to build a management software for
+        open course.
     """,
 
     'author': "Justin Zhu",
-    'website': "http://www.yourcompany.com",
+    'website': "http://www.polarwin.cn",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
     # for the full list
-    'category': 'Uncategorized',
+    'category': 'tutorial',
     'version': '0.1',
 
     # any module necessary for this one to work correctly
@@ -27,8 +27,6 @@
         # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'views/openacademy.xml',
-        'views/partner.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
