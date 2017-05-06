@@ -71,5 +71,43 @@
         <!-- Full id location:
              action="openacademy.course_list_action"
              It is not required when it is the same module -->
+
+        <!-- now we add another view: Session -->
+        <!-- there are three parts:
+            form view
+            windows action
+            menuitem -->
+
+        <!-- session form view -->
+        <record model="ir.ui.view" id="session_form_view">
+            <field name="name">session.form</field>
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <form string="Session Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="start_date"/>
+                            <field name="duration"/>
+                            <field name="seats"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- session action window -->
+        <record model="ir.actions.act_window" id="session_list_action">
+            <field name="name">Sessions</field>
+            <field name="res_model">openacademy.session</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- menuitem for listing sessions -->
+        <menuitem id="session_menu" name="Sessions"
+                  parent="openacademy_menu"
+                  action="session_list_action"/>
+
     </data>
 </odoo>
