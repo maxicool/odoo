@@ -27,7 +27,8 @@
         </record>
 
         <!-- we try to modify search form -->
-        <!-- but after update, i don't see any effect -->
+        <!-- Allow searching for courses based on their title or their description. -->
+        <!-- after update, when we type: there is a hint: search xx in title / description -->
         <record model="ir.ui.view" id="course_search_view">
             <field name="name">course.search</field>
             <field name="model">openacademy.course</field>
