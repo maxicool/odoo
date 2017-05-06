@@ -12,6 +12,21 @@ class Course(models.Model):
     description = fields.Text()
 
 '''
+add a responsible person for the Course,
+since the responsible must be in the organization, there is a link to
+res.users
+'''
+    responsible = fields.Many2one(
+        string="Responsible",
+        comodel_name="res.users",
+        #domain="[('field', '=', other)]",
+        #context={"key": "value"},
+        ondelete="set null",
+        index=True,
+        help="Person who in charge for the course",
+    )
+
+'''
 Create a session model
 For the module Open Academy, we consider a model for sessions: a session is an
 occurrence of a course taught at a given time for a given audience.
@@ -25,11 +40,15 @@ Add access to the session object in openacademy/view/openacademy.xml.
 '''
 
 # We check if we can use upgrade app, to update models
+# restarting odoo, model can be updated after upgrading app
 class Session(models.Model):
     _name = 'openacademy.session'
 
     name = fields.Char(required=True)
     start_date = fields.Date()
+    # digits=(6, 2) specifies the precision of a float number: 6 is the total
+    # number of digits, while 2 is the number of digits after the comma. Note
+    # that it results in the number digits before the comma is a maximum 4
     duration = fields.Float(digits=(6, 2), help="Duration in days")
     seats = fields.Integer(string="Number of seats")
 

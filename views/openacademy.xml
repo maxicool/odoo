@@ -11,6 +11,7 @@
                     <sheet>
                         <group>
                             <field name="name"/>
+                            <field name="responsible_id"/>
                             <!-- <field name="description"/> -->
                         </group>
                         <notebook>
