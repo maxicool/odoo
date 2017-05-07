@@ -17,11 +17,11 @@
 ```
 postgres     
 | Column         | Type           |
-| :------------- | :------------- |
-| id             | Integer        |
+| -------------: | -------------: |
+| id| Integer|
+| responsible| Integer|
 ```
 ```xml
-<!-- override the automatically generated list view for courses -->
 <record model="ir.ui.view" id="course_tree_view">
     <field name="name">course.tree</field>
     <field name="model">openacademy.course</field>
@@ -36,3 +36,4 @@ postgres
     </field>
 </record>
 ```
+10. add instructor_id and course_id to xml. todo: add search view for session. people can find course /session by instructors.

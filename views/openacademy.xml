@@ -107,11 +107,17 @@
                 <form string="Session Form">
                     <sheet>
                         <group>
-                            <field name="name"></field>
-                            <field name="start_date"></field>
-                            <field name="duration"></field>
-                            <field name="seats"></field>
-                        </group>
+							<group string="General">
+								<field name="course_id"></field>
+                            	<field name="name"></field>
+								<field name="instructor_id"></field>
+							</group>
+							<group string="Schedule">
+                            	<field name="start_date"></field>
+                            	<field name="duration"></field>
+                            	<field name="seats"></field>
+							</group>
+						</group>
                     </sheet>
                 </form>
             </field>
