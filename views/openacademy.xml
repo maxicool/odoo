@@ -117,6 +117,7 @@
                             	<field name="start_date"></field>
                             	<field name="duration"></field>
                             	<field name="seats"></field>
+								<field name="taken_seats" widget="progressbar"></field>
 							</group>
 						</group>
 						<label for="attendee_ids"></label>

@@ -67,14 +67,17 @@ class Session(models.Model):
         help="students who coming for the session",
     )
 
-# class openacademy(models.Model):
-#     _name = 'openacademy.openacademy'
+    taken_seats = fields.Float(
+        string="Taken Seats",
+        compute='_taken_seats')
 
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         self.value2 = float(self.value) / 100
+    # Dependencies
+    @api.depends("seats", "attendee_ids", )
+    # definition of compute field _taken_seats
+    def _taken_seats(self):
+        for r in self:
+            if not r.seats:
+                r.taken_seats = 0.0
+            else:
+                # the percentage of
+                r.taken_seats = 100.0 * len(r.attendee_ids) /r.seats
