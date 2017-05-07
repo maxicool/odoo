@@ -94,8 +94,9 @@
              It is not required when it is the same module -->
 
         <!-- now we add another view: Session -->
-        <!-- there are three parts:
+        <!-- there are 4 parts:
             form view
+			list view
             windows action
             menuitem -->
 
@@ -120,6 +121,19 @@
 						</group>
                     </sheet>
                 </form>
+            </field>
+        </record>
+
+		<!-- session tree/list view -->
+        <record model="ir.ui.view" id="session_tree_view">
+            <field name="name">session.tree</field>
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <tree string="Session Tree">
+                    <field name="name"></field>
+                    <field name="course_id" string="course name"></field>
+					<field name="instructor_id" string="instructor name"></field>
+                </tree>
             </field>
         </record>
 

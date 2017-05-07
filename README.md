@@ -14,13 +14,16 @@
 7. install failed after loading xml, try exclude openacademy in manifest, no effect.  delete openacademy from addons ! then relink/ cancel upgrade! i will try unistall and install
 8. changed model add instructor. i will not change xml file first. still try upgrading first.
 9. add tree view for course! and found bug from official tutorial:
+
+postgres table description
 ```
-postgres     
-| Column         | Type           |
-| -------------: | -------------: |
+\d+ openacademy_course;
+```
+| Column | Type |
+| --- | --- |
 | id| Integer|
 | responsible| Integer|
-```
+
 ```xml
 <record model="ir.ui.view" id="course_tree_view">
     <field name="name">course.tree</field>
@@ -37,3 +40,4 @@ postgres
 </record>
 ```
 10. add instructor_id and course_id to xml. todo: add search view for session. people can find course /session by instructors.
+11. add couse name, instructors to ession tree/list view
