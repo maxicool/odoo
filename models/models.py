@@ -11,11 +11,9 @@ class Course(models.Model):
     #description = fields.Text(string="what is up"
     description = fields.Text()
 
-'''
-add a responsible person for the Course,
-since the responsible must be in the organization, there is a link to
-res.users
-'''
+    # add a responsible person for the Course,
+    # since the responsible must be in the organization, there is a link to
+    # res.users
     responsible = fields.Many2one(
         string="Responsible",
         comodel_name="res.users",
@@ -51,6 +49,14 @@ class Session(models.Model):
     # that it results in the number digits before the comma is a maximum 4
     duration = fields.Float(digits=(6, 2), help="Duration in days")
     seats = fields.Integer(string="Number of seats")
+
+    # add instructors and session related course.
+    # a session is only related to one course, but a course may open many sessions
+    # a session has one instructor, and a instructor may give lessons to a lot of session
+    # and instructors are in res.partner
+    instructor_id = fields.Many2one('res.partner', string="Instructor")
+    course_id = fields.Many2one('openacademy.course',
+        ondelete='cascade', string="Course", required=True)
 
 # class openacademy(models.Model):
 #     _name = 'openacademy.openacademy'
