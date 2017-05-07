@@ -40,3 +40,5 @@ postgres table description
 11. add couse name, instructors to ession tree/list view
 12. add Many2many for attendees in models then upgrade!
 13. add Many2many in xml! no errors
+14. working on inheritance
+... add partner.py in models following by tutorial. but maybe i should modify __init__.py in models directory. upgrade and see what is in database.
