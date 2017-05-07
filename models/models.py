@@ -43,12 +43,14 @@ class Session(models.Model):
     _name = 'openacademy.session'
 
     name = fields.Char(required=True)
-    start_date = fields.Date()
+    start_date = fields.Date(default=fields.Date.today)
     # digits=(6, 2) specifies the precision of a float number: 6 is the total
     # number of digits, while 2 is the number of digits after the comma. Note
     # that it results in the number digits before the comma is a maximum 4
     duration = fields.Float(digits=(6, 2), help="Duration in days")
     seats = fields.Integer(string="Number of seats")
+    # Add a field active in the class Session, and set sessions as active by default.
+    active = fields.Boolean(default=True)
 
     # add instructors and session related course.
     # a session is only related to one course, but a course may open many sessions

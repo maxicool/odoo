@@ -45,4 +45,5 @@ postgres table description
   * add partner.xml upgrade and see （wow! no errors)
   * add relation for instructors and session in partner.py
 15. working with domain and conditions.
-16. Computed fields
+16. Computed fields and progressbar
+17. Default value

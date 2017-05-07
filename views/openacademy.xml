@@ -136,6 +136,7 @@
                     <field name="name"></field>
                     <field name="course_id" string="course name"></field>
 					<field name="instructor_id" string="instructor name"></field>
+					<field name="active"></field>
                 </tree>
             </field>
         </record>
