@@ -112,6 +112,7 @@
 								<field name="course_id"></field>
                             	<field name="name"></field>
 								<field name="instructor_id"></field>
+								<field name="active"></field>
 							</group>
 							<group string="Schedule">
                             	<field name="start_date"></field>
