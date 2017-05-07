@@ -5,28 +5,37 @@
         <record model="ir.ui.view" id="partner_instructor_form_view">
             <field name="name">partner.instructor</field>
             <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="inherit_id" ref="base.view_partner_form"></field>
             <field name="arch" type="xml">
+                <!-- inheritance inside notebook -->
                 <notebook position="inside">
                     <page string="Sessions">
                         <group>
-                            <field name="instructor"/>
-                            <field name="session_ids"/>
+                            <field name="instructor"></field>
+                            <!-- teached_ids is One2many for instructors
+                            defined in partner.py -->
+                            <field name="teached_ids"></field> 
+                            <!-- session_ids is Many2many for students
+                            defined in partner.py as well as in session-->
+                            <field name="session_ids"></field>
                         </group>
                     </page>
                 </notebook>
             </field>
         </record>
 
+        <!-- windows action list -->
         <record model="ir.actions.act_window" id="contact_list_action">
             <field name="name">Contacts</field>
             <field name="res_model">res.partner</field>
             <field name="view_mode">tree,form</field>
         </record>
+
+        <!-- menuitem  -->
         <menuitem id="configuration_menu" name="Configuration"
-                  parent="main_openacademy_menu"/>
+                  parent="main_openacademy_menu"></menuitem>
         <menuitem id="contact_menu" name="Contacts"
                   parent="configuration_menu"
-                  action="contact_list_action"/>
+                  action="contact_list_action"></menuitem>
     </data>
 </odoo>
