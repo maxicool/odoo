@@ -41,6 +41,7 @@ postgres table description
 12. add Many2many for attendees in models then upgrade!
 13. add Many2many in xml! no errors
 14. working on inheritance
-  * add partner.py in models following by tutorial. but maybe i should modify __init__.py by adding ./models directory.
+  * add partner.py in models following by tutorial. but maybe i should modify \__init\__.py by adding from models import ...
   * add partner.xml upgrade and see （wow! no errors)
-  * add relation for instructors and session in partner.py (no errors but not as wished skip for late)
+  * add relation for instructors and session in partner.py
+15. working with domain and conditions.

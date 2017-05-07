@@ -54,7 +54,9 @@ class Session(models.Model):
     # a session is only related to one course, but a course may open many sessions
     # a session has one instructor, and a instructor may give lessons to a lot of session
     # and instructors are in res.partner
-    instructor_id = fields.Many2one('res.partner', string="Instructor")
+    instructor_id = fields.Many2one('res.partner', string="Instructor",
+        domain=['|', ('instructor','=',True),
+                    ('category_id.name', 'ilike', 'teacher')])
     course_id = fields.Many2one('openacademy.course',
         ondelete='cascade', string="Course", required=True)
     # a Many2many relation, attendees can take part in many sessions,

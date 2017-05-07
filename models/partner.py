@@ -10,8 +10,29 @@ class Partner(models.Model):
     # why it is only for attendees, not for instructor?!
     session_ids = fields.Many2many('openacademy.session',
         string="Attended Sessions", readonly=True)
-    teached_ids = fields.One2many(
+    # for one2many inverse_name is obliged
+    instructor_ids = fields.One2many(
         string="Lectured Sessions",
         comodel_name="openacademy.session",
+        inverse_name="instructor_id",
         help="Lectured session",
         readonly=True)
+
+# new_field_ids = fields.Many2many(
+#     string="Field name",
+#     comodel_name="res.partner",
+#     relation="relation_table_name",
+#     column1="column_this",
+#     column2="column_other",
+#     domain="[('field', '=', other)]",
+#     context={"key": "value"},
+#     help="Explain your field.",
+# )
+# new_field_ids = fields.One2many(
+#     string="Field name",
+#     comodel_name="res.partner",
+#     inverse_name="inverse_name_id",
+#     domain="[('field', '=', other)]",
+#     context={"key": "value"},
+#     help="Explain your field.",
+# )

@@ -12,9 +12,9 @@
                     <page string="Sessions">
                         <group>
                             <field name="instructor"></field>
-                            <!-- teached_ids is One2many for instructors
+                            <!-- instructor_ids is One2many for instructors
                             defined in partner.py -->
-                            <field name="teached_ids"></field> 
+                            <field name="instructor_ids"></field>
                             <!-- session_ids is Many2many for students
                             defined in partner.py as well as in session-->
                             <field name="session_ids"></field>
@@ -37,5 +37,22 @@
         <menuitem id="contact_menu" name="Contacts"
                   parent="configuration_menu"
                   action="contact_list_action"></menuitem>
+
+        <record model="ir.actions.act_window" id="contact_cat_list_action">
+                  <field name="name">Contact Tags</field>
+                  <field name="res_model">res.partner.category</field>
+                  <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="contact_cat_menu" name="Contact Tags"
+                  parent="configuration_menu"
+                  action="contact_cat_list_action"/>
+
+        <record model="res.partner.category" id="teacher1">
+                  <field name="name">Teacher / Level 1</field>
+        </record>
+        <record model="res.partner.category" id="teacher2">
+                  <field name="name">Teacher / Level 2</field>
+        </record>                  
     </data>
 </odoo>
