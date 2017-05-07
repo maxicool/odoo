@@ -1,9 +1,6 @@
-## odoo
-## make an own apps open academy
+## odoo to create an own apps - open academy
 
-### it is a tutorial
-
-#### some issues:
+### my work log:
 
 1. sometimes i have stop whole odoo server to reinstall this apps
 2. upgrade has no effect after having changes in models.py, only a reinstall works
@@ -41,3 +38,5 @@ postgres table description
 ```
 10. add instructor_id and course_id to xml. todo: add search view for session. people can find course /session by instructors.
 11. add couse name, instructors to ession tree/list view
+12. add Many2many for attendees in models then upgrade!
+13. add Many2many in xml! no errors

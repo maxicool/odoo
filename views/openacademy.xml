@@ -119,6 +119,8 @@
                             	<field name="seats"></field>
 							</group>
 						</group>
+						<label for="attendee_ids"></label>
+						<field name="attendee_ids"></field>
                     </sheet>
                 </form>
             </field>

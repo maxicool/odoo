@@ -57,6 +57,13 @@ class Session(models.Model):
     instructor_id = fields.Many2one('res.partner', string="Instructor")
     course_id = fields.Many2one('openacademy.course',
         ondelete='cascade', string="Course", required=True)
+    # a Many2many relation, attendees can take part in many sessions,
+    # while a session can have a lot of attendees
+    attendee_ids = fields.Many2many(
+        string="Attendees",
+        comodel_name="res.partner",
+        help="students who coming for the session",
+    )
 
 # class openacademy(models.Model):
 #     _name = 'openacademy.openacademy'
