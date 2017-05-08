@@ -47,3 +47,5 @@ postgres table description
 15. working with domain and conditions.
 16. Computed fields and progressbar
 17. Default value
+18. onchange (change model, odoo need to be restarted)
+19. model constraints
