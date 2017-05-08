@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, exceptions
+from datetime import timedelta
 
 class Course(models.Model):
     _name = 'openacademy.course'
@@ -40,7 +41,7 @@ class Course(models.Model):
     # could be still errors:
     # copy of copy of (1)
     # copy of copy of (2)
-    # then delet (1) and copy : copy of copy of 
+    # then delet (1) and copy : copy of copy of
     @api.multi
     def copy(self, default=None):
         default = dict(default or {})
@@ -118,6 +119,10 @@ class Session(models.Model):
         string="Taken Seats",
         compute='_taken_seats')
 
+    end_date = fields.Date(string="End Date", store=True,
+    compute='_get_end_date', inverse='_set_end_date')
+
+
     # Dependencies
     @api.depends("seats", "attendee_ids", )
     # definition of compute field _taken_seats
@@ -145,6 +150,31 @@ class Session(models.Model):
                     'message': "Increase seats or remove excess attendees",
                 },
             }
+
+    @api.depends('start_date', 'duration')
+    def _get_end_date(self):
+        for r in self:
+            if not (r.start_date and r.duration):
+                r.end_date = r.start_date
+                continue
+
+            # Add duration to start_date, but: Monday + 5 days = Saturday, so
+            # subtract one second to get on Friday instead
+            start = fields.Datetime.from_string(r.start_date)
+            duration = timedelta(days=r.duration, seconds=-1)
+            r.end_date = start + duration
+
+    def _set_end_date(self):
+        for r in self:
+            if not (r.start_date and r.end_date):
+                continue
+
+            # Compute the difference between dates, but: Friday - Monday = 4 days,
+            # so add one day to get 5 days instead
+            start_date = fields.Datetime.from_string(r.start_date)
+            end_date = fields.Datetime.from_string(r.end_date)
+            r.duration = (end_date - start_date).days + 1
+
 
     @api.constrains('instructor_id', 'attendee_ids')
     def _check_instructor_not_in_attendees(self):

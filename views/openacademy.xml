@@ -98,6 +98,20 @@
              action="openacademy.course_list_action"
              It is not required when it is the same module -->
 
+	 	<!-- calendar view -->
+	    <record model="ir.ui.view" id="session_calendar_view">
+	    	<field name="name">session.calendar</field>
+	        <field name="model">openacademy.session</field>
+	        <field name="arch" type="xml">
+	        	<calendar string="Session Calendar" date_start="start_date"
+						   date_stop="end_date"
+	                       color="instructor_id">
+	            	<field name="name"></field>
+	            </calendar>
+			</field>
+		</record>
+
+
         <!-- now we add another view: Session -->
         <!-- there are 4 parts:
             form view
@@ -138,10 +152,12 @@
             <field name="name">session.tree</field>
             <field name="model">openacademy.session</field>
             <field name="arch" type="xml">
-                <tree string="Session Tree">
+				<tree string="Session Tree" decoration-info="duration&lt;5" decoration-danger="duration&gt;15">
                     <field name="name"></field>
                     <field name="course_id" string="course name"></field>
+					<field name="duration" invisible="1"></field>
 					<field name="instructor_id" string="instructor name"></field>
+					<field name="taken_seats" widget="progressbar"/>
 					<field name="active"></field>
                 </tree>
             </field>
@@ -152,7 +168,7 @@
             <field name="name">Sessions</field>
             <field name="res_model">openacademy.session</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,calendar</field>
         </record>
 
         <!-- menuitem for listing sessions -->
