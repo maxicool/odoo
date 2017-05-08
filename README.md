@@ -51,3 +51,6 @@ postgres table description
 19. model constraints
   * python constraints
   * SQL constraints
+ 20. Calendar view (no effect)
+ 21. Search views (Groupby ui is cute)
+ 22. Graph views

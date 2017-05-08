@@ -49,6 +49,15 @@
                     <field name="name"></field>
                     <field name="description"></field>
                     <field name="responsible"></field>
+					<!-- filter only course which current user is responsible -->
+					<!-- in models it is responsible instead of responsible_id
+					don't use responsible_id -->
+					<filter name="my_courses" string="My Courses"
+                            domain="[('responsible', '=', uid)]"/>
+                    <group string="Group By">
+                        <filter name="by_responsible" string="Responsible"
+                            context="{'group_by': 'responsible'}"/>
+                    </group>
                 </search>
             </field>
         </record>
