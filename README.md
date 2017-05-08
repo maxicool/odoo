@@ -49,3 +49,5 @@ postgres table description
 17. Default value
 18. onchange (change model, odoo need to be restarted)
 19. model constraints
+  * python constraints
+  * SQL constraints

@@ -24,6 +24,51 @@ class Course(models.Model):
         help="Person who in charge for the course",
     )
 
+    # There is an session_ids in partner.py too!
+    # session_ids = fields.Many2many('openacademy.session',
+    #     string="Attended Sessions", readonly=True)
+    # How to distinguish in xml ? by definition in
+    # <field name="model">openacademy.course</field>
+    session_ids = fields.One2many(
+        string="Sessions",
+        comodel_name="openacademy.session",
+        inverse_name="course_id",
+        help="fill sessions",
+    )
+
+    # add a new copy function, because of sql unique constraints
+    # could be still errors:
+    # copy of copy of (1)
+    # copy of copy of (2)
+    # then delet (1) and copy : copy of copy of 
+    @api.multi
+    def copy(self, default=None):
+        default = dict(default or {})
+
+        copied_count = self.search_count(
+            [('name', '=like', u"Copy of {}%".format(self.name))])
+        if not copied_count:
+            new_name = u"Copy of {}".format(self.name)
+        else:
+            new_name = u"Copy of {} ({})".format(self.name, copied_count)
+
+        default['name'] = new_name
+        return super(Course, self).copy(default)
+
+    # sql constraints
+    # CHECK that the course description and the course title are different
+    # Make the Course's name UNIQUE
+    _sql_constraints = [
+        ('name_description_check',
+         'CHECK(name != description)',
+         "The title of the course should not be the description"),
+
+        ('name_unique',
+         'UNIQUE(name)',
+         "The course title must be unique"),
+    ]
+
+
 '''
 Create a session model
 For the module Open Academy, we consider a model for sessions: a session is an
