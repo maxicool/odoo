@@ -97,6 +97,7 @@ class Session(models.Model):
     seats = fields.Integer(string="Number of seats")
     # Add a field active in the class Session, and set sessions as active by default.
     active = fields.Boolean(default=True)
+    color = fields.Integer()
 
     # add instructors and session related course.
     # a session is only related to one course, but a course may open many sessions

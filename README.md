@@ -55,3 +55,4 @@ postgres table description
  21. Search views (Groupby ui is cute)
  22. Gantt charts
  23. Graph views
+ 24. Kanban
