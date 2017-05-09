@@ -54,4 +54,4 @@ postgres table description
  20. Calendar view (no effect)
  21. Search views (Groupby ui is cute)
  22. Gantt charts
- 22. Graph views
+ 23. Graph views
