@@ -51,8 +51,8 @@ postgres table description
 19. model constraints
   * python constraints
   * SQL constraints
- 20. Calendar view (no effect)
- 21. Search views (Groupby ui is cute)
- 22. Gantt charts
- 23. Graph views
- 24. Kanban
+20. Calendar view (no effect)
+21. Search views (Groupby ui is cute)
+22. Gantt charts
+23. Graph views
+24. Kanban
