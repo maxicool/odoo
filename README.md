@@ -56,3 +56,4 @@ postgres table description
 22. Gantt charts
 23. Graph views
 24. Kanban
+25. Workflowish
