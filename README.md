@@ -57,3 +57,4 @@ postgres table description
 23. Graph views
 24. Kanban
 25. Workflowish
+26. workflow + automatic workflow
