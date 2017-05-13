@@ -61,4 +61,4 @@ postgres table description
   * workflow + automatic workflow (at home workflow works not same as in the office, even the code is same, delete sessions, it works now)
   * server's action instead of python code
 26. security （no real code)
-27. wizard
+27. wizard: wizard is in action menu :-)
