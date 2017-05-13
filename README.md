@@ -56,5 +56,9 @@ postgres table description
 22. Gantt charts
 23. Graph views
 24. Kanban
-25. Workflowish
-26. workflow + automatic workflow
+25. Workflow
+  * workflow like object/button
+  * workflow + automatic workflow (at home workflow works not same as in the office, even the code is same, delete sessions, it works now)
+  * server's action instead of python code
+26. security （no real code)
+27. wizard
